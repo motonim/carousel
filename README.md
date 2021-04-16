@@ -1,3 +1,3 @@
-# carousel
+# Building a Carousel
 
-Building a carousel from the scratch using Javascript and keyframes(to make smoothe transitions).
+Building a basic carousel from the scratch using Javascript and keyframes(to make smoothe transitions).
