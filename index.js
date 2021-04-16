@@ -2,6 +2,22 @@ const slides = document.getElementsByClassName('carousel-item');
 let slidePosition = 0;
 const totalSlides = slides.length;
 
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName('carousel-item');
+  for (i = 0; i < x.length; i++) {
+    x[i].classList.remove('carousel-item-visible');
+  }
+  slidePosition++;
+  if (slidePosition > x.length) {
+    slidePosition = 1;
+  }
+  x[slidePosition - 1].classList.add('carousel-item-visible');
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+
 const prev = document.getElementById('carousel-button-prev');
 const next = document.getElementById('carousel-button-next');
 
