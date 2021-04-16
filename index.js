@@ -5,9 +5,19 @@ const totalSlides = slides.length;
 const prev = document.getElementById('carousel-button-prev');
 const next = document.getElementById('carousel-button-next');
 
-function movePrev() {}
+prev.addEventListener('click', movePrev);
+next.addEventListener('click', moveNext);
+
+function hideAllSlides() {
+  for (let slide of slides) {
+    slide.classList.remove('carousel-item-visible');
+    slide.classList.add('carousel-item-hidden');
+  }
+}
 
 function moveNext() {
+  hideAllSlides();
+
   if (slidePosition === totalSlides - 1) {
     slidePosition = 0;
   } else {
@@ -17,5 +27,14 @@ function moveNext() {
   slides[slidePosition].classList.add('carousel-item-visible');
 }
 
-prev.addEventListener('click', movePrev);
-next.addEventListener('click', moveNext);
+function movePrev() {
+  hideAllSlides();
+
+  if (slidePosition === 0) {
+    slidePosition = totalSlides - 1;
+  } else {
+    slidePosition--;
+  }
+
+  slides[slidePosition].classList.add('carousel-item-visible');
+}
